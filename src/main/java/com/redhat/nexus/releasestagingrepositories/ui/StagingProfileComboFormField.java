@@ -37,6 +37,6 @@ public class StagingProfileComboFormField extends Combobox<String> {
     @Override
     public String getType() {
         //noinspection SpellCheckingInspection
-        return "stgprofile";
+        return "combo"; // FIXME: 06/01/2020
     }
 }

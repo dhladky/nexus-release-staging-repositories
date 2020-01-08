@@ -40,7 +40,7 @@
           <artifactId>nexus-staging-plugin</artifactId>
           <version>${project.version}</version>
           <scope>provided</scope>
-          <!-- <type>${nexus-plugin.type}</type>     -->
+          <type>${nexus-plugin.type}</type>     <!-- -->
       </dependency>
   </dependencies>
 
