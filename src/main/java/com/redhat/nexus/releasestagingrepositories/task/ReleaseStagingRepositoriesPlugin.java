@@ -11,12 +11,6 @@ import org.jetbrains.annotations.NonNls;
 public class ReleaseStagingRepositoriesPlugin extends PluginIdentity
 {
     /**
-    * Prefix for ID-like things.
-    */
-    @NonNls
-    public static final String ID_PREFIX = "rsr";
-
-    /**
     * Expected groupId for plugin artifact.
     */
     @NonNls

@@ -1,6 +1,7 @@
 package com.redhat.nexus.releasestagingrepositories.ui;
 
 import org.sonatype.nexus.formfields.Combobox;
+//fixme does not work
 
 /** Combobox for picking of staging profile. */
 public class StagingProfileComboFormField extends Combobox<String> {
