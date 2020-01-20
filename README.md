@@ -15,6 +15,7 @@ It adds a new scheduled task type with name **Automatic Release of Promoted Repo
 
 ## Installation
 
+- find the zip bundle corresponding to your Nexus release version
 - shut down Nexus
 - expand the bundle zip file to sonatype-work/nexus/plugin-repository folder 
 - on Mac/Linux set the file access permissions so Nexus can access the files. Example:
