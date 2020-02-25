@@ -34,7 +34,7 @@ public class CleanUpTask extends AbstractNexusTask<String> {
     @Override
     protected String doRun() throws Exception {
         logger.info("I am doing run!"); // todo not implemented
-        Field configurationField = DefaultStagingConfiguration.class.getDeclaredField("configuration");
+        Field configurationField = DefaultStagingConfiguration.class.getDeclaredField("configurationSnapshot");
         configurationField.setAccessible(true);
         Configuration configuration = (Configuration) configurationField.get(stagingConfiguration);
 
