@@ -14,6 +14,7 @@ import javax.inject.Named;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -60,6 +61,27 @@ public class CleanUpTask extends AbstractNexusTask<String> {
         if(reposToPromote.size() > 0) {
            try {
                stagingManager.promoteStagingRepositories(reposToPromote, getParameter(CleanUpTaskDescriptor.FLD_DESCRIPTION), Boolean.parseBoolean(getParameter(CleanUpTaskDescriptor.FLD_AUTOMATIC_DROP)));
+
+               while (true) {
+                   synchronized (this){
+                       wait(60000);
+                   }
+
+                   Iterator<String> iterator = reposToPromote.iterator();
+                   while (iterator.hasNext()) {
+                       String repo = iterator.next();
+                       if(!stagingManager.isTransitioning(repo)) {
+                           iterator.remove(); // processed
+                       }
+                   }
+
+                   if(reposToPromote.isEmpty()) {
+                       logger.info("Automatic release of " + profileId +" finished.");
+                       break;
+                   } else {
+                       logger.info("Automatic release of "+ profileId + " is running: "+reposToPromote.size()+" repositories to process.");
+                   }
+               }
            } catch (Exception e) {
                logger.error("Error promoting repositories: ", e.getMessage());
            }
