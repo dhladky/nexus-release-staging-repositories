@@ -32,7 +32,7 @@
     <parent>
         <groupId>org.sonatype.nexus.plugins</groupId>
         <artifactId>nexus-plugins</artifactId>
-        <version>2.14.19-01</version>
+        <version>2.14.20-02</version>
     </parent>
 
     <scm>
@@ -58,7 +58,7 @@
       </dependency>
 
       <!-- Needs to be added to Maven manually aka:
-        mvn install:install-file -Dfile=nexus-staging-plugin-2.14.18-01.jar -DgroupId=com.sonatype.nexus.plugins -DartifactId=nexus-staging-plugin -Dversion=2.14.18-01 -Dpackaging=jar -DgeneratePom=true
+        mvn install:install-file -Dfile=nexus-staging-plugin-2.14.20-02.jar -DgroupId=com.sonatype.nexus.plugins -DartifactId=nexus-staging-plugin -Dversion=2.14.20-02 -Dpackaging=jar -DgeneratePom=true
       -->
       <dependency>
           <groupId>com.sonatype.nexus.plugins</groupId>
@@ -107,4 +107,15 @@
           </plugin>
     </plugins>
   </build>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
